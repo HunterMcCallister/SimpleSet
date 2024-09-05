@@ -1,0 +1,12 @@
+After I cloned the file over I ran the SetTester.java.
+
+Bug 1
+New Empty Set is failing the is empty. I did not get a line number to see what was giving it an error but I noticed that it is passing in other tests. I went to inspect the isEmpty method.
+I set a breakpoint at line 34 and run in debugger. i noticed that at line 34 it is returning that rear is initialized as 0. when it got to the isEmpty it was returning false. 
+I corrected the code to read rear == 0. isEmpty should be returning true if ==0.
+Reran the tester and thee "New empty set" is passing entirely.
+Realised this is not the correct answer to the code and it was causing the rest of it to fail. Made sure that 
+
+Bug 2
+I noticed that the add(A) scenario is failing the isEmpty, test size and contains A. my first thought is that it is not removing it correctly or something so i went to investigate the remove() method.
+I set the break point at the while loop at line 64. 
