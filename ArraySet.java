@@ -41,13 +41,8 @@ public class ArraySet<T> implements SimpleSet<T> {
 
     @Override
     public boolean isEmpty() {
-        for (int i = 0; i < setArray.length; i++) {
-            if (setArray[i] != null) {
-                return false;
-
-            }
-        }
-        return true;
+      
+        return (rear == 0);
     }
 
     @Override
@@ -67,6 +62,7 @@ public class ArraySet<T> implements SimpleSet<T> {
                 expandCapacity();
             }
             setArray[rear] = element;
+            rear ++;
         }
     }
 
@@ -80,7 +76,7 @@ public class ArraySet<T> implements SimpleSet<T> {
                 retVal = setArray[i];
                 //shift all following elements one space forward
                 //so there are no gaps in the array
-                while (i < rear) {
+                while (i < rear - 1) {
                     setArray[i] = setArray[i + 1];
                     i++;
                 }

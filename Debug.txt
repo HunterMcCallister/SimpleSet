@@ -1,12 +1,20 @@
 After I cloned the file over I ran the SetTester.java.
 
 Bug 1
-New Empty Set is failing the is empty. I did not get a line number to see what was giving it an error but I noticed that it is passing in other tests. I went to inspect the isEmpty method.
-I set a breakpoint at line 34 and run in debugger. i noticed that at line 34 it is returning that rear is initialized as 0. when it got to the isEmpty it was returning false. 
+New Empty Set is failing the isEmpty. I did not get a line number to see what was giving it an error but I noticed that it is passing in other tests. I went to inspect the isEmpty method.
+I set a breakpoint at line 67 in the tester and ran in debugger. I noticed that at line 34 it is returning that rear is initialized as 0. when it got to the isEmpty it was returning false. 
 I corrected the code to read rear == 0. isEmpty should be returning true if ==0.
 Reran the tester and thee "New empty set" is passing entirely.
-Realised this is not the correct answer to the code and it was causing the rest of it to fail. Made sure that 
+Realised this is not the correct answer to the code. Tried changing things around.
+Realised it is indeed the correct answer and it fixerd the Empty Set is passing entirely.
 
 Bug 2
-I noticed that the add(A) scenario is failing the isEmpty, test size and contains A. my first thought is that it is not removing it correctly or something so i went to investigate the remove() method.
-I set the break point at the while loop at line 64. 
+I noticed that the Add(A) scenario is failing the isEmpty, test size and a few others.
+Went to investigate the add method. I set a breakpoint at the tester in line 82. Ran the debugger and stepped through the code and watched
+what was happening. noticed that the rear was not being updated after adding the new part. went back to the code and added rear++.
+Passing almost everything except for the out of bounds.
+
+Bug 3
+Only thing left failing was the index out of bounds that was popping in A_addB_AB_testRemoveA and A_addB_AB_testRemoveB.
+went and checked the remove method at those lines in the stack as a starting point. set a breakpoint at line 265 in the method. Ran in debugger and
+saw that it was not shifting correctly. changed the while loop to be rear - 1 instead to move it the correct direction to not go out of bounds. 
